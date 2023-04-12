@@ -1,0 +1,41 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.bdr{
+    border:1px solid black;
+}
+.nav-item{
+    @apply pb-2 tracking-widest transition ease-out duration-700;
+
+}
+.nav-item:hover{
+    border-bottom: 3px solid #6b21a8;
+}
+.btn{
+    @apply text-white bg-purple-800 py-2 px-7 rounded-3xl tracking-widest;
+}
+
+.bord-top{
+    border-top: 3px solid #6b21a8;
+    border-radius: 3px;
+    margin-bottom: 3px;
+}
+
+.input{
+    @apply border-2 border-l-purple-800 w-full mb-6 px-3 py-2 focus:outline-none;
+}
+
+.container-sm{
+    padding: 1.5rem;
+}
+
+
+.active{
+    border-bottom: 3px solid #6b21a8;
+}
+
