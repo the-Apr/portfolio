@@ -9,7 +9,8 @@ module.exports = {
       }
     },
     fontFamily:{
-      Poppins: ["Poppins, sans-serif"],
+      "worksans" : ["Work sans, sans-serif"],
+      "poppins" :["Poppins, sans-serif"],
     },
     container: {
       center: true,

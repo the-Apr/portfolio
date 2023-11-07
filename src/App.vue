@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gradient-to-r from-indigo-200 to-pink-200 via-purple-200 font-Poppins">
-    <nav class="md:container px-8  font-bold flex flex-1 items-center py-4 mt-3 md:mt-6 ">
+    <nav class="md:container px-8  font-bold flex flex-1 items-center py-4">
       <div class="logo">
         <h2>My Portflio</h2>
       </div>
@@ -23,3 +23,14 @@
 <style>
 
 </style>
+
+<script>
+  export default{
+    components:{},
+    data(){
+      return{
+        
+      }
+    }
+  }
+</script>
