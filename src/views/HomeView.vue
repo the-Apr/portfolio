@@ -1,36 +1,101 @@
 <template>
-  <div class="">
-    <section class="md:container px-8 relative">
-      <div class="flex flex-col-reverse justify-center mx-auto md:flex-row items-center gap-4 md:gap-12 mt-4 md:mt-8 mb-6 md:mb-0">
-        <div class="flex flex-1 flex-col justify-center md:justify-start items-center md:items-start gap-5 md:w-1/2">
-          <h3 class="text-xl md:text-2xl lg:text-4xl text-center tracking-wide md:text-left">
-            Building user-friendly web experiences with aesthetic pleasure. 
-          </h3>
-          <!-- <p class="md:text-left text-center text-gray-700 text-lg">I am a Web Developer</p> -->
-          <button class="btn max-w-xs" href="#">Download CV</button>
+  <div class="home">
+    <section class="home-wrap">
+      <div class="welcome-note">
+        <div class="left">
+          <h1>Hello there,</h1>
+          <h1> Welcome to my hub </h1>
+          <p>Explore the goodness of aesthetics and creativity</p>
         </div>
-        <div class="flex justify-center flex-1 md:mb-0 md:w-1/2 shadow-sm p-2">
-          <img class="w-full h-5/6 md:h-full" src="../assets/Hello-rafiki.png" alt="welcome image">
+        <div class="right">
+          <img src="../assets/work1.jpg" alt="welcome image">
         </div>
       </div>
     </section>    
   </div>
-  <AboutView/>
+ 
 </template>
 
 <script>
+
 // @ is an alias to /src
 
 
 export default {
   name: 'HomeView',
   components: {
-    
+  
   },
+
   data(){
     return{
-      names: ['Bruce', 'Clark', 'Jones'],
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home-wrap {
+  @apply px-5 relative;
+
+  @screen md {
+    @apply mx-10 px-10;
+  }
+  @screen lg{
+  }
+
+  .welcome-note {
+    @apply flex flex-col justify-center mx-auto  items-center gap-24 mt-16  mb-6;
+    @screen lg {
+      @apply flex-row gap-12 mt-32 mb-0
+    }
+
+    .left {
+      @apply flex flex-1 flex-col justify-center w-full;
+
+      @screen lg{
+        @apply justify-start items-start gap-3 w-1/2;
+      }
+
+      h1 {
+        @apply  text-4xl font-bold leading-6;
+
+        &:nth-child(2) {
+          margin-top: 10px
+        }
+
+        @screen md {
+          @apply text-6xl tracking-[0.32px] font-bold leading-10;
+        }
+      }
+      p{
+        @apply  mt-5 text-base font-light tracking-widest leading-8 ;
+
+        @screen md {
+          @apply tracking-widest leading-8 text-xl;
+        }
+      }
+    }
+
+    .right {
+      @apply flex justify-center flex-1 w-full shadow-sm ;
+      max-height: 500px; 
+
+      @screen lg {
+        @apply mb-0 w-1/2 ;
+      }
+      img {
+        @apply  block object-cover rounded-lg;
+        max-height: 500px;
+        min-width: 600px;
+        
+        @screen lg {
+          min-height: 300px;
+          max-height: 700px;
+        }
+
+      }
+    }
+  }
+}
+</style>

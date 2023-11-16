@@ -13,9 +13,10 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 library.add(fas, far, fab)
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
+app.use(router);
+
 app.component('fa-icon', FontAwesomeIcon);
 
 app.mount('#app')

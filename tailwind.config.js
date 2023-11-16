@@ -2,16 +2,17 @@
 module.exports = {
   content: ['./public/**/*.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
 
+  corePlugins: {
+    preflight: false,
+  },
+
   theme: {
     extend: {
-      colors:{
-        "my-gradient": [""],
-      }
     },
-    fontFamily:{
-      "worksans" : ["Work sans, sans-serif"],
-      "poppins" :["Poppins, sans-serif"],
-    },
+
+    // colors: {
+    //   "card-bg" : "#272729",
+    // },
     container: {
       center: true,
       padding: "5rem",
