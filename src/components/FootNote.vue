@@ -1,7 +1,7 @@
 <template>
   <div class="foot-note">
     <div class="foot-wrap">
-      <h2>Contact</h2>
+      <h2>Contact Me</h2>
       <div class="socials">
         <a href="https://github.com/the-Apr" target="_blank">
           <fa-icon :icon="['fab', 'github']" class="icon" />
@@ -22,18 +22,31 @@
   @apply mt-20;
 
   .foot-wrap {
-    @apply px-16 py-10 flex gap-10 justify-center items-center bg-[#090e1b];
+    @apply px-16 py-10 flex gap-10 justify-center items-center;
     // bg-[#131628];
+    border-top: 1px solid #4238c9;
 
     h2{
-      @apply uppercase 
+      @apply uppercase text-base;
+
+      @screen lg {
+        @apply text-xl
+      }
     }
 
     .socials {
-      @apply flex gap-10;
+      @apply flex gap-4;
+
+      @screen lg {
+        @apply gap-10
+      }
 
       .icon{
-        @apply text-white h-8
+        @apply text-white h-5;
+
+        @screen lg {
+          @apply h-8
+        }
 
       }
     }

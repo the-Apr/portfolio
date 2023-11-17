@@ -27,7 +27,6 @@ export default {
 </script>
 
 <style lang="scss">
-// @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
@@ -36,15 +35,11 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // font-family: "Poppins", sans-serif;
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
 
 .app {
-  // display: flex;
-  // flex-direction: column;
-  // gap: 90px;
   min-height: 100vh;
   background-color: #1f1f23;
 }

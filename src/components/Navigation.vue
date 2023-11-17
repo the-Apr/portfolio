@@ -1,6 +1,6 @@
 <template>
 <header>
-  <nav class="lg:container">
+  <nav class="nav-wrap">
     <div class="branding">
       <router-link class="link" :to="{name: 'home'}">Portfolio</router-link>
     </div>
@@ -23,11 +23,25 @@
     v-show="mobile"
   />
   <transition name="mobile-nav" >
-    <ul v-show="mobileNav" class="mobile-nav">
-      <router-link class="link" :to="{}">Home</router-link>
-      <router-link class="link" :to="{}">Blogs</router-link>
-      <router-link class="link" to="#">Create Post</router-link>
-    </ul>
+    <div v-show="mobileNav" class="mobile-nav" >
+      <ul>
+        <router-link class="link" :to="{}">Home</router-link>
+        <router-link class="link" :to="{}">Blogs</router-link>
+        <router-link class="link" to="#">Create Post</router-link>
+      </ul>
+
+      <div class="socials">
+        <a href="https://github.com/the-Apr" target="_blank">
+          <fa-icon :icon="['fab', 'github']" class="icon" />
+        </a>
+        <a href="https://www.linkedin.com/in/praise-adebayo-6ab205235/" target="_blank">
+          <fa-icon :icon="['fab', 'linkedin']" class="icon" />
+        </a>
+        <a href="mailto:praiseadebayo218@yahoo.com">
+          <fa-icon :icon="['fas', 'envelope']" class="icon" />
+        </a>
+      </div>
+    </div>
   </transition>
 </header> 
 </template>
@@ -79,17 +93,27 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  @apply py-0 px-14 text-white;
+  @apply py-0 px-3 text-white;
   z-index: 99;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) ;
+  border-bottom: 1px solid #4238c9;
+  // box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) ;
+
+  @screen lg {
+    @apply px-14
+  }
+
+  .nav-wrap {
+    @apply px-4 mx-4;
+  }
 }
+
 
 .link{
   @apply font-medium py-0 px-2 no-underline;
   transition: .3s color ease-in;
 
   &:hover {
-    color: #1eb8b8;
+    color: #4238c9;
   }
 }
 
@@ -124,7 +148,7 @@ nav {
 
 
 .menu-icon {
-  @apply cursor-pointer absolute top-4 right-6 h-6 w-auto;
+  @apply cursor-pointer absolute top-4 right-10 h-6 w-auto;
 
   @media (min-width: 768px) {
     top: 32px;
@@ -134,13 +158,21 @@ nav {
 }
 
 .mobile-nav {
-  @apply p-5 w-4/6 flex flex-col fixed h-full top-0 left-0;
+  @apply px-5 py-5 w-4/6 flex flex-col justify-between fixed h-full top-0 left-0;
   max-width: 250px;
   background-color: #4b4b4f;
   z-index: 99;
 
+  ul{
+    @apply flex flex-col gap-2
+  }
+
   .link {
-    @apply py-4 text-white
+    @apply p-3 text-white
+  }
+
+  .socials {
+    @apply justify-self-end flex gap-4;
   }
 }
  
