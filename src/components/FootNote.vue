@@ -22,9 +22,13 @@
   @apply mt-20;
 
   .foot-wrap {
-    @apply px-16 py-10 flex gap-10 justify-center items-center;
+    @apply px-16 py-6 flex flex-col gap-4 justify-center items-center;
     // bg-[#131628];
     border-top: 1px solid #4238c9;
+
+    @screen sm {
+      @apply flex-row py-10 gap-10;
+    }
 
     h2{
       @apply uppercase text-base;

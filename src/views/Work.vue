@@ -1,5 +1,5 @@
 <template>
-  <div class="work">
+  <div class="work" id="work">
     <div class="work-wrap">
       <div class="left">
         <h3>MY WORK</h3>
@@ -77,8 +77,11 @@ export default {
       }
 
       p{
-        @apply leading-loose tracking-wider mb-4;
-        color: #d0c5d1;
+        @apply  text-base font-light tracking-wider leading-6 text-[#d0c5d1] mb-2;
+
+        @screen md {
+          @apply tracking-wider leading-8 text-lg;
+        }
       }
     }
 

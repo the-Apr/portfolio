@@ -2,15 +2,23 @@
 <header>
   <nav class="nav-wrap">
     <div class="branding">
-      <router-link class="link" :to="{name: 'home'}">Portfolio</router-link>
+      <router-link @click="scrollToSection('home')" class="link" :to="{name: 'home'}">Portfolio</router-link>
     </div>
     <div class="nav-links">
       <ul v-show="!mobile">
-        <router-link class="link" :to="{name: 'about'}">About</router-link>
-        <router-link class="link" :to="{name: 'project'}">Work</router-link>
+               
+        <li @click="scrollToSection('about')">
+          <router-link class="link" :to="{name: 'about'}">About</router-link>
+        </li>
+
+        <li @click="scrollToSection('work')">
+          <router-link class="link" :to="{ name: 'project' }">Work</router-link>
+        </li>
+      
         <router-link class="link" :to="{}">
           <nav-button />
         </router-link>
+        
       </ul>
     </div>
   </nav>
@@ -83,6 +91,10 @@ export default {
     toggleNav() {
       this.mobileNav = !this.mobileNav
     },
+
+    scrollToSection(sectionId) {
+      this.$root.scrollToSection(sectionId);
+    },
   },
 
   computed : {
@@ -106,7 +118,9 @@ header {
     @apply px-4 mx-4;
   }
 }
-
+ ul{
+  @apply list-none cursor-pointer;
+ }
 
 .link{
   @apply font-medium py-0 px-2 no-underline;
@@ -118,7 +132,7 @@ header {
 }
 
 nav {
-  @apply flex py-3 h-16 ;
+  @apply flex py-3 h-16;
 
   @screen md{
     @apply py-6 h-24;
@@ -128,15 +142,15 @@ nav {
     @apply relative flex items-center justify-end flex-1;
 
     ul {
-    @apply flex items-center;
+    @apply flex gap-6 items-center;
 
-      .link {
-        margin-right: 32px;
-        font-size: 17px
-      }
-      .link:last-child {
-        margin-right: 0;
-      }
+      // .link {
+      //   margin-right: 32px;
+      //   font-size: 17px
+      // }
+      // .link:last-child {
+      //   margin-right: 0;
+      // }
     }
   }
 }

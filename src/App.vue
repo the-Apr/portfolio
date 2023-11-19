@@ -1,9 +1,25 @@
 <template>
   <div>
     <div class="app">
-      <navigation />
+      <!-- <navigation />
         <router-view/>
+        <home-view/>
+        <about/>
+        <work/>
       
+      <foot-note/> -->
+
+      <navigation />
+      <div id="home" class="section">
+        <home-view/>
+      </div>
+      <div id="about" class="section">
+        <about/>
+      </div>
+      <div id="work" class="section">
+        <work/>
+      </div>
+      <!-- Add more sections as needed -->
       <foot-note/>
     </div>
   </div>
@@ -13,6 +29,8 @@
 import Navigation from '@/components/Navigation.vue';
 import About from '@/views/About.vue';
 import FootNote from '@/components/FootNote.vue'
+import HomeView from './views/HomeView.vue';
+import Work from './views/Work.vue';
 
 
 export default {
@@ -21,8 +39,19 @@ export default {
   components: {
     Navigation,
     About,
-    FootNote
-  }
+    FootNote,
+    HomeView,
+    Work
+  },
+
+  methods: {
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+  },
 }
 </script>
 

@@ -55,9 +55,12 @@
         @apply tracking-widest text-4xl mb-5 mt-2
       }
 
-      p{
-        @apply text-lg font-normal leading-8 tracking-widest mb-3;
-        color: #d0c5d1;
+       p{
+        @apply  text-base font-light tracking-wider leading-6 text-[#d0c5d1] mb-2;
+
+        @screen md {
+          @apply tracking-wider leading-8 text-lg;
+        }
       }
     }
 

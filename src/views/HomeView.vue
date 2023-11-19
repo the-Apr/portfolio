@@ -3,8 +3,10 @@
     <section class="home-wrap">
       <div class="welcome-note">
         <div class="left">
-          <h1>Hello there, <br> Welcome to my hub </h1>
-          <p>Embark on a journey to explore the boundless realms of aesthetics and innovation. Uncover the tapestry of creativity woven with pixels, passion, and purpose. <br>Let's transform ideas into immersive experiences!</p>
+          <div class="text">
+            <h1>Hello there, <br> Welcome to my hub </h1>
+            <p>Embark on a journey to explore the boundless realms of aesthetics and innovation. Uncover the tapestry of creativity woven with pixels, passion, and purpose. <br>Let's transform ideas into immersive experiences!</p>
+          </div>
           <div class="action-btn">
             <button class="my-works">My Works</button>
             <button class="chat"> Contact Me</button>
@@ -45,6 +47,7 @@ export default {
     @apply mx-10 px-10;
   }
   @screen lg{
+    @apply container
   }
 
   .welcome-note {
@@ -60,7 +63,10 @@ export default {
         @apply justify-start items-start gap-8 w-1/2;
       }
 
-      h1 {
+      .text {
+        @apply flex flex-col gap-4;
+
+        h1 {
         @apply  text-4xl font-bold leading-[50px];
 
         &:nth-child(2) {
@@ -68,22 +74,24 @@ export default {
         }
 
         @screen md {
-          @apply text-[64px] tracking-[0.32px] font-bold leading-[70px];
+          @apply text-[60px] tracking-[0.32px] font-bold leading-[70px];
         }
-      }
-      p{
-        @apply  text-base font-light tracking-widest leading-7 text-[#aeadb0];
+        }
+        p{
+          @apply  text-base font-light tracking-wider leading-6 text-[#aeadb0];
 
-        @screen md {
-          @apply tracking-widest leading-8 text-xl;
+          @screen md {
+            @apply leading-8 text-lg;
+          }
         }
       }
+     
 
       .action-btn {
         @apply flex flex-row gap-10 mt-4;
 
         button {
-          @apply px-4 py-3 border-none rounded-3xl w-[200px]
+          @apply px-8 py-3 border-none rounded-3xl max-w-[200px]
         }
         .my-works {
           @apply bg-[#4238c9]
