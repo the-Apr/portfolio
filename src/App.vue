@@ -1,25 +1,22 @@
 <template>
   <div>
     <div class="app">
-      <!-- <navigation />
-        <router-view/>
-        <home-view/>
-        <about/>
-        <work/>
-      
-      <foot-note/> -->
-
       <navigation />
-      <div id="home" class="section">
-        <home-view/>
-      </div>
-      <div id="about" class="section">
-        <about/>
-      </div>
-      <div id="work" class="section">
-        <work/>
-      </div>
-      <!-- Add more sections as needed -->
+
+      <transition name="scale-fade" mode="out-in" >
+        <div v-if="showContent">
+          <div id="home" class="section">
+            <home-view/>
+          </div>
+          <div id="about" class="section">
+            <about/>
+          </div>
+          <div id="work" class="section">
+            <work/>
+          </div>
+        </div>
+      </transition>
+      
       <foot-note/>
     </div>
   </div>
@@ -42,6 +39,16 @@ export default {
     FootNote,
     HomeView,
     Work
+  },
+
+  data() {
+    return {
+      showContent: false,
+    }
+  },
+
+  mounted() {
+    this.showContent = true;
   },
 
   methods: {
@@ -71,5 +78,20 @@ export default {
 .app {
   min-height: 100vh;
   background-color: #1f1f23;
+}
+
+.section {
+  @apply pt-6;
+}
+
+.scale-fade-enter-active,
+.scale-fade-leave-active {
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.scale-fade-enter-from {
+  /* transform: scale(0.8); */
+  transform: translateY(20px);
+  opacity: 0;
 }
 </style>

@@ -31,11 +31,19 @@
     v-show="mobile"
   />
   <transition name="mobile-nav" >
-    <div v-show="mobileNav" class="mobile-nav" >
+    <div v-show="mobileNav" ref="mobile-wrap" @click="checkClick" class="mobile-nav" >
       <ul>
-        <router-link class="link" :to="{}">Home</router-link>
-        <router-link class="link" :to="{}">Blogs</router-link>
-        <router-link class="link" to="#">Create Post</router-link>
+        <li @click="scrollToSection('about')">
+          <router-link class="link" :to="{name: 'about'}">About</router-link>
+        </li>
+
+        <li @click="scrollToSection('work')">
+          <router-link class="link" :to="{ name: 'project' }">Work</router-link>
+        </li>
+      
+        <!-- <router-link class="link" :to="{}">
+          <nav-button />
+        </router-link> -->
       </ul>
 
       <div class="socials">
@@ -94,6 +102,17 @@ export default {
 
     scrollToSection(sectionId) {
       this.$root.scrollToSection(sectionId);
+    },
+    
+    mobileScrollToSection(sectionId) {
+      this.$root.scrollToSection(sectionId);
+      this.toggleNav();
+    },
+
+    checkClick(e) {
+      if(e.target ===this.$refs.invoiceWrap) {
+        this.toggleNav();
+      }
     },
   },
 
@@ -172,13 +191,15 @@ nav {
 }
 
 .mobile-nav {
-  @apply px-5 py-5 w-4/6 flex flex-col justify-between fixed h-full top-0 left-0;
+  @apply px-10 py-16 w-4/6 flex flex-col justify-between fixed h-full top-0 left-0;
   max-width: 250px;
-  background-color: #4b4b4f;
+  // background-color: #4b4b4f;
+  background-color: #1f1f23;
   z-index: 99;
+  box-shadow: 7px 0px 11px 5px rgba(0, 0, 0, 0.1);
 
   ul{
-    @apply flex flex-col gap-2
+    @apply flex flex-col gap-y-6
   }
 
   .link {
