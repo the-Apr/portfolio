@@ -5,13 +5,13 @@
 
       <transition name="scale-fade" mode="out-in" >
         <div v-if="showContent">
-          <div id="home" class="section">
+          <div id="home" class="section" ref="home">
             <home-view/>
           </div>
-          <div id="about" class="section">
+          <div id="about" class="section" ref="about">
             <about/>
           </div>
-          <div id="work" class="section">
+          <div id="work" class="section" ref="work">
             <work/>
           </div>
         </div>
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+// import {mapActions} from 'vuex';
+
 import Navigation from '@/components/Navigation.vue';
 import About from '@/views/About.vue';
 import FootNote from '@/components/FootNote.vue'
@@ -58,6 +60,8 @@ export default {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     },
+
+    // ...mapActions(['scrollToSection']),
   },
 }
 </script>

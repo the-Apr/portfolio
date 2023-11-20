@@ -1,4 +1,5 @@
 <template>
+<div class="top-most">
 <header>
   <nav class="nav-wrap">
     <div class="branding">
@@ -31,38 +32,42 @@
     v-show="mobile"
   />
   <transition name="mobile-nav" >
-    <div v-show="mobileNav" ref="mobile-wrap" @click="checkClick" class="mobile-nav" >
-      <ul>
-        <li @click="scrollToSection('about')">
-          <router-link class="link" :to="{name: 'about'}">About</router-link>
-        </li>
+    <div v-show="mobileNav" ref="mobileWrap" @click="checkClick" class="mobile-wrap">
+      <div class="mobile-nav">
+        <ul>
+          <li @click="mobileScrollToSection('about')">
+            <router-link class="link" :to="{name: 'about'}">About</router-link>
+          </li>
 
-        <li @click="scrollToSection('work')">
-          <router-link class="link" :to="{ name: 'project' }">Work</router-link>
-        </li>
-      
-        <!-- <router-link class="link" :to="{}">
-          <nav-button />
-        </router-link> -->
-      </ul>
+          <li @click="mobileScrollToSection('work')">
+            <router-link class="link" :to="{ name: 'project' }">Work</router-link>
+          </li>
+        
+          <!-- <router-link class="link" :to="{}">
+            <nav-button />
+          </router-link> -->
+        </ul>
 
-      <div class="socials">
-        <a href="https://github.com/the-Apr" target="_blank">
-          <fa-icon :icon="['fab', 'github']" class="icon" />
-        </a>
-        <a href="https://www.linkedin.com/in/praise-adebayo-6ab205235/" target="_blank">
-          <fa-icon :icon="['fab', 'linkedin']" class="icon" />
-        </a>
-        <a href="mailto:praiseadebayo218@yahoo.com">
-          <fa-icon :icon="['fas', 'envelope']" class="icon" />
-        </a>
+        <div class="socials">
+          <a href="https://github.com/the-Apr" target="_blank">
+            <fa-icon :icon="['fab', 'github']" class="icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/praise-adebayo-6ab205235/" target="_blank">
+            <fa-icon :icon="['fab', 'linkedin']" class="icon" />
+          </a>
+          <a href="mailto:praiseadebayo218@yahoo.com">
+            <fa-icon :icon="['fas', 'envelope']" class="icon" />
+          </a>
+        </div>
       </div>
     </div>
   </transition>
 </header> 
+</div>
 </template>
 
 <script>
+// import { mapMutations, mapActions, mapState } from 'vuex';
 import NavButton from '@/components/NavButton.vue'
 export default {
   name: 'navigation',
@@ -96,6 +101,10 @@ export default {
       return;
     },
 
+    // ...mapMutations(['toggleNav']),
+
+    // ...mapActions([ 'mobileScrollToSection']),
+
     toggleNav() {
       this.mobileNav = !this.mobileNav
     },
@@ -110,19 +119,24 @@ export default {
     },
 
     checkClick(e) {
-      if(e.target ===this.$refs.invoiceWrap) {
+      if(e.target === this.$refs.mobileWrap) {
         this.toggleNav();
       }
     },
   },
 
   computed : {
+    // ...mapState(['mobileNav'])
   }
 
 }
 </script>
 
 <style lang="scss" scoped>
+// .top-most {
+//   @apply fixed top-0 left-0 w-full;
+//   z-index: 99;
+// }
 header {
   @apply py-0 px-3 text-white;
   z-index: 99;
@@ -190,12 +204,17 @@ nav {
   }
 }
 
+.mobile-wrap {
+  @apply fixed top-0 left-0 w-full bg-transparent;
+  height: 100vh;
+  z-index: 3;
+}
+
 .mobile-nav {
-  @apply px-10 py-16 w-4/6 flex flex-col justify-between fixed h-full top-0 left-0;
+  @apply p-10 w-4/6 flex flex-col justify-between h-full;
   max-width: 250px;
   // background-color: #4b4b4f;
   background-color: #1f1f23;
-  z-index: 99;
   box-shadow: 7px 0px 11px 5px rgba(0, 0, 0, 0.1);
 
   ul{

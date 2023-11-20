@@ -5,7 +5,7 @@
         <h3>MY WORK</h3>
         <h1>Projects</h1>
         <p>Embarking on a journey through diverse realms of creativity, my portfolio stands as a testament to a tapestry woven with passion and purpose. Over the years, I've immersed myself in a spectrum of projects, spanning the realms of client collaborations and personal endeavors.</p>
-        <p>From the intricate dance of code in web development to the vibrant strokes of design, each project etches a unique chapter in my creative odyssey. These works are more than pixels and lines; they embody a relentless pursuit of excellence, a symphony of innovation, and a commitment to transforming ideas into immersive experiences. </p>
+        <!-- <p>From the intricate dance of code in web development to the vibrant strokes of design, each project etches a unique chapter in my creative odyssey. These works are more than pixels and lines; they embody a relentless pursuit of excellence, a symphony of innovation, and a commitment to transforming ideas into immersive experiences. </p> -->
         <p>Explore this curated collection, and join me on a visual voyage that transcends the ordinary.</p>
       </div>
 
