@@ -1,5 +1,5 @@
 <template>
-  <div class="work" id="work">
+  <div class="work">
     <div class="work-wrap">
       <div class="left">
         <h3>MY WORK</h3>
@@ -51,7 +51,7 @@ export default {
   @apply px-5  mt-10;
 
   @screen md {
-    @apply pb-10 mt-20 py-10
+    @apply py-10
   }
 
   .work-wrap {

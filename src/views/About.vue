@@ -14,7 +14,7 @@
         
         <div class="gallery-wrap">
           <img src="../assets/work1.jpg" alt="" class="md:col-span-2">
-          <img src="../assets/work2.jpg" alt="">
+          <img src="../assets/work2.jpg" alt="" @click="toggleFullScreen">
           <img src="../assets/work3.jpg" alt="">
           <img src="../assets/work3.jpg" alt="">
           <img src="../assets/work1.jpg" alt="" class="md:col-span-2 lg:col-span-3">
@@ -27,10 +27,10 @@
 
 <style lang="scss" scoped>
 .about {
-  @apply px-5  mt-20;
+  @apply px-5  mt-10;
 
   @screen md {
-    @apply px-10
+    @apply px-10 mt-10 py-10
   }
 
   .about-wrap {
@@ -81,13 +81,14 @@
         }
 
         img{
-          @apply w-full block object-cover rounded-lg;
+          @apply w-full block object-cover rounded-lg cursor-pointer;
           max-height: 400px;
           height: 250px;
           transition: filter 0.5s;
         
-         @screen md {
-          height: 100%;
+          @screen md {
+            height: 100%;
+          }
 
           &:hover {
             transform: rotateZ(-1deg) scale(1.01);
@@ -95,7 +96,18 @@
             // filter: grayscale(100%);
             filter: brightness(70%) saturate(70%);
           }
-        }
+
+          &.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            max-height: none;
+            z-index: 1000;
+            transition: transform 0.5s;
+            // transform: scale(1.5);
+          }
         }
       }
     }
@@ -112,6 +124,12 @@ export default {
 
   components: {
     NavButton,
+  },
+
+  methods: {
+    toggleFullScreen(event) {
+      event.target.classList.toggle('fullscreen');
+    },
   }
 
 }

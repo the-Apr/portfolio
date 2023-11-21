@@ -17,7 +17,9 @@
         </div>
       </transition>
       
+      <div id="contact">
       <foot-note/>
+      </div>
     </div>
   </div>
 </template>
@@ -68,8 +70,9 @@ export default {
 
 <style lang="scss">
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Montserrat:wght@400;500&display=swap');
 
 * {
   margin: 0;

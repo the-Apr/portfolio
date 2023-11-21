@@ -3,7 +3,7 @@
 <header>
   <nav class="nav-wrap">
     <div class="branding">
-      <router-link @click="scrollToSection('home')" class="link" :to="{name: 'home'}">Portfolio</router-link>
+      <router-link @click="scrollToSection('home')" class="link" :to="{name: 'home'}">Praise Portfolio</router-link>
     </div>
     <div class="nav-links">
       <ul v-show="!mobile">
@@ -35,17 +35,15 @@
     <div v-show="mobileNav" ref="mobileWrap" @click="checkClick" class="mobile-wrap">
       <div class="mobile-nav">
         <ul>
-          <li @click="mobileScrollToSection('about')">
-            <router-link class="link" :to="{name: 'about'}">About</router-link>
-          </li>
+          
+            <router-link  :to="{name: 'about'}" @click="mobileScrollToSection('about')" class="link">About</router-link>
+          
 
-          <li @click="mobileScrollToSection('work')">
-            <router-link class="link" :to="{ name: 'project' }">Work</router-link>
+          <li @click="mobileScrollToSection('work')"  class="link">
+            <router-link :to="{ name: 'project' }">Work</router-link>
           </li>
         
-          <!-- <router-link class="link" :to="{}">
-            <nav-button />
-          </router-link> -->
+          <li class="link">Contact</li>
         </ul>
 
         <div class="socials">
@@ -138,11 +136,14 @@ export default {
 //   z-index: 99;
 // }
 header {
-  @apply py-0 px-3 text-white;
+  @apply py-3 px-3 text-white;
   z-index: 99;
   border-bottom: 1px solid #4238c9;
   // box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) ;
 
+  @screen md {
+    @apply py-1
+  }
   @screen lg {
     @apply px-14
   }
@@ -151,12 +152,16 @@ header {
     @apply px-4 mx-4;
   }
 }
- ul{
+ul{
   @apply list-none cursor-pointer;
- }
+}
+
+a{
+  @apply no-underline;
+}
 
 .link{
-  @apply font-medium py-0 px-2 no-underline;
+  @apply font-medium py-0 px-2 ;
   transition: .3s color ease-in;
 
   &:hover {
@@ -191,14 +196,18 @@ nav {
 
 .branding {
   @apply flex items-center;
+  a{
+    @apply text-2xl tracking-wider;
+    font-family: 'Dancing Script', cursive;
+  }
 }
 
 
 .menu-icon {
-  @apply cursor-pointer absolute top-4 right-10 h-6 w-auto;
+  @apply cursor-pointer absolute top-6 right-10 h-8 w-auto;
 
   @media (min-width: 768px) {
-    top: 32px;
+    top: 35px;
     right: 54px;
 
   }
@@ -218,11 +227,11 @@ nav {
   box-shadow: 7px 0px 11px 5px rgba(0, 0, 0, 0.1);
 
   ul{
-    @apply flex flex-col gap-y-6
+    @apply flex flex-col gap-y-3
   }
 
   .link {
-    @apply p-3 text-white
+    @apply p-3
   }
 
   .socials {

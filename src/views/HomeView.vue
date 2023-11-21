@@ -8,8 +8,8 @@
             <p>Embark on a journey to explore the boundless realms of aesthetics and innovation. Uncover the tapestry of creativity woven with pixels, passion, and purpose. <br>Let's transform ideas into immersive experiences!</p>
           </div>
           <div class="action-btn">
-            <button class="my-works">My Works</button>
-            <button class="chat"> Contact Me</button>
+            <button class="my-works" @click="scrollToSection('work')">My Works</button>
+            <button class="chat" @click="scrollToSection('contact')"> Contact Me</button>
           </div>
         </div>
         <div class="right">
@@ -35,6 +35,12 @@ export default {
   data(){
     return{
     }
+  },
+
+  methods: {
+     scrollToSection(sectionId) {
+      this.$root.scrollToSection(sectionId);
+    },
   }
 }
 </script>
@@ -49,6 +55,8 @@ export default {
   @screen lg{
     @apply container
   }
+
+
 
   .welcome-note {
     @apply flex flex-col justify-center mx-auto  items-center gap-24 mt-16  mb-6;

@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .project-card {
-  @apply relative cursor-pointer flex flex-col rounded-lg w-full p-2;
+  @apply relative cursor-pointer flex flex-col rounded-lg w-full p-4;
   min-height: 200px;
   max-height: 370px;
   // background-color: #272729;
@@ -46,15 +46,15 @@ export default {
   }
 
   .icons {
-    @apply flex absolute top-4 right-3;
+    @apply flex absolute top-6 right-5;
     z-index: 99;
 
     .icon {
       @apply flex justify-center items-center w-8 h-8 p-4;
       border-radius: 50%;
       transition: 0.5s ease all;
-      background-color: #272729;
-      // background-color: #4238c9;
+      // background-color: #272729;
+      background-color: #4238c9;
 
       &:hover {
         color: #fff;
