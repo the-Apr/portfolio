@@ -31,7 +31,8 @@ export default {
   min-height: 200px;
   max-height: 370px;
   // background-color: #272729;
-  background-color: #090e1b;
+  // background-color: #090e1b;
+  background-color: #272729;
   
   transition: .5s ease all;
 
@@ -86,14 +87,14 @@ export default {
 
   .info {
     @apply flex flex-col h-full py-8 px-4;
-    z-index: 3;
+    z-index: 1;
     color: #000;
 
     h4 {
-      @apply pb-2 text-lg font-light
+      @apply pb-2 text-lg font-light;
     }
     h6 {
-      @apply pb-4 text-sm font-normal
+      @apply pb-4 text-sm font-normal text-[#d4d4d8];
     }
     .link {
       @apply inline-flex items-center mt-auto font-medium pt-4 text-sm pb-1;

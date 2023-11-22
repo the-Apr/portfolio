@@ -104,7 +104,14 @@ export default {
     // ...mapActions([ 'mobileScrollToSection']),
 
     toggleNav() {
-      this.mobileNav = !this.mobileNav
+      this.mobileNav = !this.mobileNav;
+      if (this.mobileNav) {
+        // Prevent scrolling when the mobile nav is active
+        document.body.style.overflow = 'hidden';
+      } else {
+        // Restore scrolling when the mobile nav is closed
+        document.body.style.overflow = '';
+      }
     },
 
     scrollToSection(sectionId) {
@@ -131,13 +138,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .top-most {
-//   @apply fixed top-0 left-0 w-full;
-//   z-index: 99;
-// }
+.top-most {
+  @apply sticky top-0 left-0 w-full bg-inherit;
+  z-index: 999;
+}
 header {
-  @apply py-3 px-3 text-white;
-  z-index: 99;
+  @apply py-3 px-3 text-white mb-4;
   border-bottom: 1px solid #4238c9;
   // box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) ;
 
@@ -170,10 +176,10 @@ a{
 }
 
 nav {
-  @apply flex py-3 h-16;
+  @apply flex py-3 h-14;
 
   @screen md{
-    @apply py-6 h-24;
+    @apply py-3 h-24;
   }
 
   .nav-links {
@@ -197,8 +203,12 @@ nav {
 .branding {
   @apply flex items-center;
   a{
-    @apply text-2xl tracking-wider;
+    @apply text-xl tracking-wider;
     font-family: 'Dancing Script', cursive;
+
+    @screen md {
+      @apply text-2xl
+    }
   }
 }
 
@@ -215,27 +225,27 @@ nav {
 
 .mobile-wrap {
   @apply fixed top-0 left-0 w-full bg-transparent;
-  height: 100vh;
+  height: 100%;
   z-index: 3;
 }
 
 .mobile-nav {
-  @apply p-10 w-4/6 flex flex-col justify-between h-full;
+  @apply p-6 w-4/6 flex flex-col justify-between h-full;
   max-width: 250px;
   // background-color: #4b4b4f;
   background-color: #1f1f23;
   box-shadow: 7px 0px 11px 5px rgba(0, 0, 0, 0.1);
 
   ul{
-    @apply flex flex-col gap-y-3
+    @apply flex flex-col gap-y-2
   }
 
   .link {
-    @apply p-3
+    @apply p-1
   }
 
   .socials {
-    @apply justify-self-end flex gap-4;
+    @apply justify-self-end flex gap-2;
   }
 }
  

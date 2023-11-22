@@ -1,7 +1,13 @@
 <template>
   <div>
+    <loading v-if="!showContent"/>
     <div class="app">
+      
       <navigation />
+
+      <div  class="loading-spinner">
+       
+      </div>
 
       <transition name="scale-fade" mode="out-in" >
         <div v-if="showContent">
@@ -18,7 +24,7 @@
       </transition>
       
       <div id="contact">
-      <foot-note/>
+        <foot-note/>
       </div>
     </div>
   </div>
@@ -32,6 +38,7 @@ import About from '@/views/About.vue';
 import FootNote from '@/components/FootNote.vue'
 import HomeView from './views/HomeView.vue';
 import Work from './views/Work.vue';
+import Loading from './components/Loading.vue';
 
 
 export default {
@@ -42,7 +49,8 @@ export default {
     About,
     FootNote,
     HomeView,
-    Work
+    Work,
+    Loading
   },
 
   data() {
@@ -52,7 +60,9 @@ export default {
   },
 
   mounted() {
-    this.showContent = true;
+    setTimeout(() => {
+      this.showContent = true;
+    }, 1000);
   },
 
   methods: {
@@ -84,7 +94,8 @@ export default {
 
 .app {
   min-height: 100vh;
-  background-color: #1f1f23;
+  // background-color: #1f1f23;
+  background-color: #18181a;
 }
 
 .section {
