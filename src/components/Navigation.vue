@@ -24,7 +24,7 @@
     </div>
   </nav>
 
-
+  <!-- mobile navigation -->
   <fa-icon 
     :icon="['fas', 'bars']" 
     class="menu-icon" 
@@ -35,8 +35,7 @@
     <div v-show="mobileNav" ref="mobileWrap" @click="checkClick" class="mobile-wrap">
       <div class="mobile-nav">
         <ul>
-          
-            <router-link  :to="{name: 'about'}" @click="mobileScrollToSection('about')" class="link">About</router-link>
+          <router-link  :to="{name: 'about'}" @click="mobileScrollToSection('about')" class="link">About</router-link>
           
 
           <li @click="mobileScrollToSection('work')"  class="link">

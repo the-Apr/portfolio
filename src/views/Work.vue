@@ -36,10 +36,10 @@ export default {
  data() {
   return {
     sampleBlogCards: [
-      { blogTitle: " Card #1", blogCoverPhoto: "work1", blogDate: "May 1, 2021" },
-      { blogTitle: "Blog Card #2", blogCoverPhoto: "work2", blogDate: "May 7, 2021" },
-      { blogTitle: "Blog Card #3", blogCoverPhoto: "work3", blogDate: "May 4, 2021" },
-      { blogTitle: "Blog Card #4", blogCoverPhoto: "work1", blogDate: "May 4, 2023" },
+      { blogTitle: "Rockshield MFB", blogCoverPhoto: "rs_1.png", blogDate: "May 1, 2021" },
+      { blogTitle: "Eni Blogs", blogCoverPhoto: "Blog_3.png", blogDate: "May 7, 2021" },
+      { blogTitle: "Urlsentry", blogCoverPhoto: "url_1.jpeg", blogDate: "May 4, 2021" },
+      { blogTitle: "Invoicee", blogCoverPhoto: "invoice_2.png", blogDate: "May 4, 2023" },
     ],
   }
  }

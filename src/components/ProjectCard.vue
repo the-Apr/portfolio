@@ -5,7 +5,7 @@
         <fa-icon class="github" :icon="['fab', 'github']" />
       </div>
     </div>
-    <img :src= "require(`../assets/${post.blogCoverPhoto}.jpg`)" alt="setup">
+    <img :src= "require(`../assets/display/${post.blogCoverPhoto}`)" alt="setup">
     <div class="info">
       <h4>{{post.blogTitle}}</h4>
       <h6>Posted on: {{post.blogDate}}</h6>
@@ -91,7 +91,7 @@ export default {
     color: #000;
 
     h4 {
-      @apply pb-2 text-lg font-light;
+      @apply pb-2 text-xl font-medium;
     }
     h6 {
       @apply pb-4 text-sm font-normal text-[#d4d4d8];
@@ -101,11 +101,13 @@ export default {
       transition: .5s ease-in all;
 
       &:hover {
-        color: rgba(48, 48, 48, 0.8);
+        // color: rgba(48, 48, 48, 0.8);
+        @apply underline underline-offset-4 decoration-[#4238c9] decoration-2
       }
 
       .arrow {
         width: 10px;
+        margin-left: 13px;
       }
     }
   }

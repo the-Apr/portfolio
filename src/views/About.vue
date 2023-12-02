@@ -12,14 +12,18 @@
       <div class="right">
         <h1>Gallery</h1>
         
+        <!-- <div class="gallery-wrap">
+          <img 
+          :src="require(`../assets/display/${photo.pic}`)" alt="" 
+          v-for="(photo, index) in galleryPhotos" :key="index"
+          @click="toggleFullScreen">
+
+          <fa-icon :icon="['far', 'xmark']"  class="icon"/>
+
+        </div> -->
         <div class="gallery-wrap">
-          <img src="../assets/work1.jpg" alt="" class="md:col-span-2">
-          <img src="../assets/work2.jpg" alt="" @click="toggleFullScreen">
-          <img src="../assets/work3.jpg" alt="">
-          <img src="../assets/work3.jpg" alt="">
-          <img src="../assets/work1.jpg" alt="" class="md:col-span-2 lg:col-span-3">
-          <img src="../assets/work2.jpg" alt="">
-        </div>
+        <gallery class="gallery" :photo= "photo" v-for="(photo, index) in galleryPhotos" :key="index"></gallery>
+       </div>
       </div>
     </div>
   </div>
@@ -70,6 +74,7 @@
       h1{
         @apply tracking-widest text-4xl mb-5 mt-2
       }
+      
       .gallery-wrap {
         @apply w-full grid grid-cols-1 grid-flow-dense gap-5 mt-10;
 
@@ -80,35 +85,21 @@
           @apply grid-cols-3
         }
 
-        img{
-          @apply w-full block object-cover rounded-lg cursor-pointer;
-          max-height: 400px;
-          height: 250px;
-          transition: filter 0.5s;
-        
+        .gallery:nth-child(2),
+        .gallery:nth-child(3),
+        .gallery:nth-child(7),
+        .gallery:nth-child(5){
           @screen md {
-            height: 100%;
-          }
-
-          &:hover {
-            transform: rotateZ(-1deg) scale(1.01);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            // filter: grayscale(100%);
-            filter: brightness(70%) saturate(70%);
-          }
-
-          &.fullscreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            max-height: none;
-            z-index: 1000;
-            transition: transform 0.5s;
-            // transform: scale(1.5);
+            @apply col-span-2
           }
         }
+
+        // &:nth-last-child(1) {
+        //   @screen md {
+        //     @apply row-start-2 row-end-4
+        //   }
+        // }
+
       }
     }
   }
@@ -118,19 +109,39 @@
 
 <script>
 import NavButton from '@/components/NavButton.vue';
+import Gallery from '@/components/Gallery.vue';
 
 export default {
   name: 'about',
 
-  components: {
-    NavButton,
+  data() {
+    return {
+      galleryPhotos: [
+        {pic: "Blog_1.png"},
+        {pic: "Blog_2.png"},
+        {pic: "Blog_3.png"},
+        {pic: "invoice_1.png"},
+        {pic: "invoice_2.png"},
+        {pic: "invoice_3.png"},
+        {pic: "rs_1.png"},
+        {pic: "rs_2.png"},
+        {pic: "url_1.jpeg"},
+        {pic: "url_2.jpeg"},
+        {pic: "todo_1.jpeg"},
+      ]
+    }
   },
 
-  methods: {
-    toggleFullScreen(event) {
-      event.target.classList.toggle('fullscreen');
-    },
-  }
+  components: {
+    NavButton,
+    Gallery
+  },
+
+  // methods: {
+  //   toggleFullScreen(event) {
+  //     event.target.classList.toggle('fullscreen');
+  //   },
+  // }
 
 }
 </script>
