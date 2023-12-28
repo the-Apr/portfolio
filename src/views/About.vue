@@ -31,17 +31,17 @@
 
 <style lang="scss" scoped>
 .about {
-  @apply px-5  mt-10;
+  @apply px-2  mt-5;
 
   @screen md {
-    @apply px-10 mt-10 py-10
+    @apply px-10 py-5
   }
 
   .about-wrap {
-    @apply relative flex flex-col gap-10;
+    @apply relative flex flex-col gap-5;
 
     @screen md {
-      @apply px-10;
+      @apply px-10 gap-10;
     }
     @screen lg{
       @apply container
@@ -76,10 +76,10 @@
       }
       
       .gallery-wrap {
-        @apply w-full grid grid-cols-1 grid-flow-dense gap-5 mt-10;
+        @apply w-full grid grid-cols-1 grid-flow-dense gap-5 mt-4;
 
         @screen md {
-          @apply grid-cols-2
+          @apply grid-cols-2 mt-10
         }
         @screen lg {
           @apply grid-cols-3

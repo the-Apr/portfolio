@@ -99,7 +99,11 @@ export default {
 }
 
 .section {
-  @apply pt-6;
+  @apply pt-8;
+
+  @screen md {
+    @apply pt-20
+  }
 }
 
 .scale-fade-enter-active,

@@ -16,9 +16,9 @@
           <router-link class="link" :to="{ name: 'project' }">Work</router-link>
         </li>
       
-        <router-link class="link" :to="{}">
+        <a href="mailto:praiseadebayo218@yahoo.com">
           <nav-button />
-        </router-link>
+        </a>
         
       </ul>
     </div>
@@ -35,14 +35,28 @@
     <div v-show="mobileNav" ref="mobileWrap" @click="checkClick" class="mobile-wrap">
       <div class="mobile-nav">
         <ul>
-          <router-link  :to="{name: 'about'}" @click="mobileScrollToSection('about')" class="link">About</router-link>
+          <!-- <router-link  :to="{name: 'about'}" @click="mobileScrollToSection('about')" class="link">Abut</router-link> -->
           
 
-          <li @click="mobileScrollToSection('work')"  class="link">
+          <li @click="mobileScrollToSection('home')"  class="link mobile-link">
+            <fa-icon :icon="['fas', 'house']" />
+            <router-link :to="{ name: 'home' }">About</router-link>
+          </li>
+
+          <li @click="mobileScrollToSection('about')"  class="link mobile-link">
+            <fa-icon :icon="['far', 'address-card']" />
+            <router-link :to="{ name: 'about' }">About</router-link>
+          </li>
+
+          <li @click="mobileScrollToSection('work')"  class="link mobile-link">
+            <fa-icon :icon="['fas', 'bars-progress']" />
             <router-link :to="{ name: 'project' }">Work</router-link>
           </li>
         
-          <li class="link">Contact</li>
+          <li class="link mobile-link">
+            <fa-icon :icon="['fas', 'phone']" />
+            <p>Contact</p>
+          </li>
         </ul>
 
         <div class="socials">
@@ -243,8 +257,12 @@ nav {
     @apply p-1
   }
 
+  .mobile-link {
+    @apply flex gap-6 items-center
+  }
+
   .socials {
-    @apply justify-self-end flex gap-2;
+    @apply justify-center flex gap-4;
   }
 }
  

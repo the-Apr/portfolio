@@ -48,10 +48,10 @@ export default {
 
 <style lang="scss" scoped>
 .work {
-  @apply px-5  mt-10;
+  @apply px-2  mt-5;
 
   @screen md {
-    @apply py-10
+    @apply  px-10 py-5
   }
 
   .work-wrap {
@@ -89,10 +89,10 @@ export default {
       @apply py-6 flex flex-col;
 
       .explore {
-        @apply flex flex-col gap-4 justify-center items-center  align-middle mb-5 mt-2;
+        @apply flex flex-col gap-1 justify-center items-center  align-middle mb-5 mt-2;
 
         @screen sm {
-          @apply flex-row
+          @apply flex-row gap-4
         }
 
         h3{

@@ -59,10 +59,10 @@ export default {
 
 
   .welcome-note {
-    @apply flex flex-col justify-center mx-auto  items-center gap-24 mt-8  mb-6;
+    @apply flex flex-col justify-center mx-auto  items-center gap-14 mt-8  mb-6;
 
     @screen md {
-      @apply mt-16
+      @apply mt-16 gap-20
     }
     @screen lg {
       @apply flex-row gap-12 mt-32 mb-0
